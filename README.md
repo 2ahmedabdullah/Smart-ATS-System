@@ -23,38 +23,7 @@ An AI-native, ultra-high-speed Applicant Tracking System (ATS) matching, semanti
 
 The engine utilizes an asynchronous thread pool to read, segment, and normalize both incoming files simultaneously before executing downstream vector math and strategic bullet remediation:
 
-
-┌────────────────────────┐
-                         │
-              ┌──────────┴───────────┐
-              │ Unstructured CV & JD │
-              └──────────┬───────────┘
-                         │
-           ┌─────────────┴─────────────┐
-           ▼    (ThreadPoolExecutor)   ▼
-  ┌──────────────────┐        ┌──────────────────┐
-  │  Resume Parsing  │        │    JD Parsing    │
-  │ (Llama-3.3-70B)  │        │ (Llama-3.3-70B)  │
-  └────────┬─────────┘        └────────┬─────────┘
-           │                           │
-           └─────────────┬─────────────┘
-                         ▼
-           ┌───────────────────────────┐
-           │    Strict JSON Object     │
-           │    Pydantic Validation    │
-           └─────────────┬─────────────┘
-                         │
-                         ▼
-           ┌───────────────────────────┐
-           │ Vector Embeddings Engine  │
-           │ Mathematical Matrix Match │
-           └─────────────┬─────────────┘
-                         │
-                         ▼
-           ┌───────────────────────────┐
-           │   Contextual Remediation  │
-           │  Custom Bullet Injection  │
-           └───────────────────────────┘
+![System Architecture](./architecture.png)
 
 
 ## ⚙️ Local Installation & Setup
